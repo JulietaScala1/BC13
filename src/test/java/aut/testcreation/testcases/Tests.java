@@ -5,6 +5,7 @@ import aut.testcreation.pages.TrenesPage;
 import aut.testcreation.pages.VuelosPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -42,10 +43,69 @@ public class Tests {
         Assertions.assertEquals("...", ...);
     }*/
 
-    public void CP001_hoteles_formulario_incorrecto_mail_vacio() {
-        driver.findElement(By.xpath("//button[contains(text(),'Rechazar todo')]")).click();
-      //vuelosPage.completarOrigenDestino("Sao Paulo", "Buenos Aires");
-        vuelosPage.ingresarFechaIda();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void CP001_busqueda_vuelos_valida() throws InterruptedException {
+        vuelosPage.cerrarCookies();
+        vuelosPage.completarOrigen("Sao Paulo");
+        vuelosPage.completarDestino("Barcelona (BCN) - El Prat, España");
+        vuelosPage.ingresarFechas();
+        vuelosPage.clickearBtnBuscar();
+        Assertions.assertEquals();
+    }
+
+    public void CP002_busqueda_vuelos_invalida_destino_incompleto() throws InterruptedException {
+        vuelosPage.cerrarCookies();
+        vuelosPage.completarOrigen("Sao Paulo");
+        vuelosPage.completarDestino("");
+        vuelosPage.ingresarFechas();
+        vuelosPage.clickearBtnBuscar();
+        Assertions.assertEquals("...", ...);
+    }
+
+    @Test
+    public void CP002_trenes() {
+        vuelosPage.cerrarCookies();
+        vuelosPage.irATrenes();
+    }
+
+    @Test
+    public void CP003_hoteles(){
+        vuelosPage.cerrarCookies();
+        vuelosPage.irAHoteles();
     }
 }
 
